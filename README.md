@@ -1,6 +1,7 @@
 # 팀명 : 뉴럴링크 
 
 ● 팀장 : 정재연
+
 ● 팀원 : 박주연, 양태성, 이도훈, 임나연 
 
 ![프로필](https://github.com/TaeseongYang/Loan_product_BI/assets/156265617/6c0b6d4c-affa-4b7d-af9c-1414700c0963)
