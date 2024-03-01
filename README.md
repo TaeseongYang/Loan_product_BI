@@ -56,6 +56,9 @@
 
 => 'Altman_Z_Score'와 '월별이자부담' 가중치를 부여하여 대출 등급과 상환률에 따른 이자율 감면 상품을 제안 
 
+![image](https://github.com/TaeseongYang/Loan_product_BI/assets/156265617/d631e473-c8ae-42ce-b503-2e367aa3ee39)
+
+
 ![image](https://github.com/TaeseongYang/Loan_product_BI/assets/156265617/b05d4078-4e5c-46d8-a94c-98fe463e6b34)
 
 **EDA 결과 낮은 대출 등급의 고객들이 감면 받는 경우가 다수를 차지**
