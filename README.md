@@ -42,6 +42,18 @@
 5. 기존 대출 가능 잠재 고객 발굴 가능
 
 ---
+# 모델링 
+
+|모델|점수|
+|------|---|
+|LGBMClassifier|0.9214193067987015|
+|CatBoostClassifier|0.902585399277785|
+|XGBClassifier|0.9241019412174871|
+|VotingClassifier|0.922350214373026|
+
+※ optuna를 통한 각 모델의 하이퍼파라미터를 구했습니다. 
+
+---
 
 # Solution
 
@@ -55,6 +67,43 @@
 **높은 이자율은 고객의 폐업률을 높임**
 
 => 'Altman_Z_Score'와 '월별이자부담' 가중치를 부여하여 대출 등급과 상환률에 따른 이자율 감면 상품을 제안 
+
+```c
+def create_loan_product(row):
+    # 조건에 따라 감면 대출상품 여부를 결정
+    if (row['Altman_Z_Score'] <= np.percentile(loan_product_data['Altman_Z_Score'], 20) and
+        row['월별이자부담'] >= np.percentile(loan_product_data['월별이자부담'], 80) and
+        row['총상환원금_대비_대출금액비율'] <= np.percentile(loan_product_data['총상환원금_대비_대출금액비율'], 20)and
+        row['대출_대비_소득_비율']<=np.percentile(loan_product_data['대출_대비_소득_비율'], 20),
+        row['총상환이자_대비_총상환원금']<=np.percentile(loan_product_data['총상환이자_대비_총상환원금'], 20)):
+        
+        # 감면 대출상품 조건을 만족하는 경우에만 감면률 설정 함수 실행
+        # 감면률 설정 함수
+        def set_interest_and_reduction_rate(row):
+            # 기본 감면률
+            base_reduction_rate = 0.5
+
+            # 피처에 대한 가중치
+            weights = {'월별이자부담': 0.4, 'Altman_Z_Score': 0.55, '총상환원금_대비_대출금액비율': 0.3}
+
+            # 가중 평균을 통해 피처들을 종합하여 감면률 설정
+            weighted_sum = sum(row[feature] * weights[feature] for feature in weights)
+
+            # 등급에 따라 추가 감면률 부여 (등급이 낮을수록 더 많은 감면)
+            additional_grade_reduction = max(0, 0.2 * (10 + row['대출등급']))
+
+            # 최종 감면률 계산
+            reduction_rate = base_reduction_rate + weighted_sum + additional_grade_reduction
+
+            return reduction_rate
+
+        # 감면률 설정 함수를 실행하고 결과를 반환
+        return set_interest_and_reduction_rate(row)
+    
+    else:
+        # 감면 대출상품 조건을 만족하지 않으면 0을 반환
+        return 0
+```
 
 ![image](https://github.com/TaeseongYang/Loan_product_BI/assets/156265617/d631e473-c8ae-42ce-b503-2e367aa3ee39)
 
