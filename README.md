@@ -1,11 +1,3 @@
-## 팀원 프로필
-
-| 7️⃣👨 | 7️⃣👨 | 7️⃣👨 | 5️⃣👩 | 5️⃣👩 |
-| :---: | :---: | :---: | :---: | :---: |
-| [`이도훈`](https://github.com/LEEDOHOON427) | [`정재연`](https://github.com/jyjnote) | [`양태성`](https://github.com/TaeseongYang) | [`박주연`](https://github.com/Parkkjuyeon) | [`임나연`](https://github.com/limnayean) |
-
----
-
 # Dacon modeling & analysis project
 
 # </br> <주제>
