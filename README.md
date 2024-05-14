@@ -1,11 +1,8 @@
-# 팀명 : 뉴럴링크 
+## 팀원 프로필
 
-● 팀장 : 정재연
-
-● 팀원 : 박주연, 양태성, 이도훈, 임나연 
-
-![프로필](https://github.com/TaeseongYang/Loan_product_BI/assets/156265617/6c0b6d4c-affa-4b7d-af9c-1414700c0963)
-
+| 7️⃣👨 | 7️⃣👨 | 7️⃣👨 | 5️⃣👩 | 5️⃣👩 |
+| :---: | :---: | :---: | :---: | :---: |
+| [`이도훈`](https://github.com/LEEDOHOON427) | [`정재연`](https://github.com/jyjnote) | [`양태성`](https://github.com/TaeseongYang) | [`박주연`](https://github.com/Parkkjuyeon) | [`임나연`](https://github.com/limnayean) |
 
 ---
 
